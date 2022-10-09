@@ -5,7 +5,8 @@ import Message from '../Message';
 import { usePage } from '@inertiajs/inertia-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function GuestLayout({ children }) {
+
+export default function GuestLayout({ children, title, description }) {
   const { flash, user } = usePage().props;
   const variants = {
     out: {

@@ -10,6 +10,9 @@ import { InertiaProgress } from '@inertiajs/progress';
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap';
 
+// import axios from 'axios';
+// axios.defaults.xsrfHeaderName = 'X-CSRF-Token';
+
 createInertiaApp({
   resolve: (name) => require(`./Pages/${name}`),
   setup({ el, App, props }) {

@@ -14,7 +14,9 @@ class ApplicationController < ActionController::Base
     #   }
     # }
 
-  inertia_share url: -> { request.path}
+
+    inertia_share logo: -> {ActionController::Base.helpers.image_url('logo.webp')}
+    inertia_share url: -> { request.path}
 
     protected
       def authenticate_user!

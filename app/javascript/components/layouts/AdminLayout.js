@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from '@inertiajs/inertia-react';
 import Navigation from '../Navigation';
 import Message from '../Message';
 import { usePage } from '@inertiajs/inertia-react';
 import { motion } from 'framer-motion';
+import Logo from '../Logo';
 
 export default function AdminLayout({ children }) {
   const { flash, user } = usePage().props;
+  const [token, setToken] = useState(
+    document.querySelector('meta[name=csrf-token]').content
+  );
 
   return (
     <>
@@ -15,7 +19,7 @@ export default function AdminLayout({ children }) {
         <Row>
           <Col xs={12} md={4} lg={3} className="bg-secondary px-2 py-2">
             <Link href="/" className="mb-5">
-              <h2 className="fs-2 text-white fw-bold">Logo</h2>
+              <Logo />
             </Link>
             <div className="nav flex-column">
               <Link
@@ -35,6 +39,14 @@ export default function AdminLayout({ children }) {
                 href="/admin/product"
               >
                 Product
+              </Link>
+              <Link
+                href="/users/sign_out"
+                method="delete"
+                headers={{ 'X-CSRF-Token': token }}
+                className="nav-link fs-4fw-bold text-white"
+              >
+                Logout
               </Link>
             </div>
           </Col>

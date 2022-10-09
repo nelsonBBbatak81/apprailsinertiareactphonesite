@@ -8,6 +8,7 @@
     "@inertiajs/inertia-react": "^0.8.0",
     "@inertiajs/progress": "^0.2.7",
     "@popperjs/core": "^2.11.6",
+    "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
     "esbuild": "^0.15.6",
     "framer-motion": "^7.3.5",

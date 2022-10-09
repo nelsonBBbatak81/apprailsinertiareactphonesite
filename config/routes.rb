@@ -14,7 +14,13 @@ Rails.application.routes.draw do
 
   scope module: 'admin' do 
     get '/admin/home' => "home#home_admin", as: :admin_home
-    get '/admin/category' => "home#category"
+
+    # url for category admin
+    get '/admin/category' => "categories#index", as: :categories
+    post '/admin/category/store' => "categories#create"
+    post '/admin/category/update/:id' => "categories#update"
+    delete '/admin/category/delete/:id' => "categories#destroy"
+
     get '/admin/product' => "home#product"
   end
 end

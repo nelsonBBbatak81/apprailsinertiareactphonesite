@@ -4,6 +4,8 @@ module Inertiable
   extend ActiveSupport::Concern
 
   included do
+    before_action :set_csrf_cookies
+
     inertia_share errors: -> {
       session.delete(:errors) || []
     }
@@ -22,4 +24,13 @@ module Inertiable
 
     super(options, response_options)
   end
+
+  private
+
+    def set_csrf_cookies
+      cookies['XSRF-TOKEN'] = {
+        value: form_authenticity_token,
+        same_site: 'Strict'
+      }
+    end
 end

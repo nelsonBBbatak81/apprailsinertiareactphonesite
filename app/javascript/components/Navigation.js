@@ -11,14 +11,14 @@ function Navigation({ user }) {
     document.querySelector('meta[name=csrf-token]').content
   );
 
-  const signOut = () => {
-    let creds = {
-      _method: 'delete',
-      authenticity_token: token,
-    };
-    // console.log(userInfo);
-    Inertia.delete('/users/sign_out', creds);
-  };
+  // const signOut = () => {
+  //   let creds = {
+  //     _method: 'delete',
+  //     authenticity_token: token,
+  //   };
+  //   // console.log(userInfo);
+  //   Inertia.delete('/users/sign_out', creds);
+  // };
 
   return (
     <Navbar bg="light" expand="lg">
