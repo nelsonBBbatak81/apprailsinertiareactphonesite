@@ -15,10 +15,10 @@ function ListCategory({
   // Get current posts
   const indexOfLastCategory = currentPage * categoriesPerPage;
   const indexOfFirstCategory = indexOfLastCategory - categoriesPerPage;
-  const currentCategories = categories.slice(
-    indexOfFirstCategory,
-    indexOfLastCategory
-  );
+  const currentCategories =
+    categories.length <= categoriesPerPage
+      ? categories
+      : categories.slice(indexOfFirstCategory, indexOfLastCategory);
 
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -47,7 +47,7 @@ function ListCategory({
             </tr>
           </thead>
           <tbody>
-            {currentCategories.length > 0 &&
+            {categories.length > 0 &&
               currentCategories.map((category) => (
                 <tr key={category.id}>
                   <td>
@@ -84,13 +84,16 @@ function ListCategory({
               ))}
           </tbody>
         </Table>
-        <div className="d-flex justify-content-center mt-4">
-          <Pagination
-            postsPerPage={categoriesPerPage}
-            totalPosts={categories.length}
-            paginate={paginate}
-          />
-        </div>
+        {categories.length > categoriesPerPage && (
+          <div className="d-flex justify-content-center mt-4">
+            <Pagination
+              postsPerPage={categoriesPerPage}
+              totalPosts={categories.length}
+              paginate={paginate}
+              currentPage={currentPage}
+            />
+          </div>
+        )}
       </Container>
     </>
   );
