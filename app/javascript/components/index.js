@@ -8,6 +8,10 @@ import ListCategory from './category/ListCategory';
 import AddCategory from './category/AddCategory';
 import EditCategory from './category/EditCategory';
 import ShowCategory from './category/ShowCategory';
+import ListBrand from './brand/ListBrand';
+import AddBrand from './brand/AddBrand';
+import EditBrand from './brand/EditBrand';
+import ShowBrand from './brand/ShowBrand';
 import Loading from './Spinner';
 
 export {
@@ -22,4 +26,8 @@ export {
   AddCategory,
   EditCategory,
   ShowCategory,
+  ListBrand,
+  AddBrand,
+  EditBrand,
+  ShowBrand,
 };

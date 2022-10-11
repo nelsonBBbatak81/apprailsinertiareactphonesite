@@ -36,6 +36,12 @@ export default function AdminLayout({ children }) {
               </Link>
               <Link
                 className="nav-link fs-4fw-bold text-white"
+                href="/admin/brand"
+              >
+                Brand
+              </Link>
+              <Link
+                className="nav-link fs-4fw-bold text-white"
                 href="/admin/product"
               >
                 Product

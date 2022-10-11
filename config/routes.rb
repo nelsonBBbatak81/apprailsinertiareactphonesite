@@ -21,6 +21,12 @@ Rails.application.routes.draw do
     post '/admin/category/update/:id' => "categories#update"
     delete '/admin/category/delete/:id' => "categories#destroy"
 
+    # url for brand admin
+    get '/admin/brand' => "brands#index", as: :brands
+    post '/admin/brand/store' => "brands#create"
+    post '/admin/brand/update/:id' => "brands#update"
+    delete '/admin/brand/delete/:id' => "brands#destroy"
+
     get '/admin/product' => "home#product"
   end
 end
